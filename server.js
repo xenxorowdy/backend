@@ -1,8 +1,8 @@
 const express = require('express');
 var bodyParser = require('body-parser')
 
-require('./service/database.service')();
-const gameRouter = require("./routes/game.router.js")
+require('./functions/service/database.service')();
+const gameRouter = require("./functions/api.js")
 const app = express();
 
 app.use(bodyParser.json())

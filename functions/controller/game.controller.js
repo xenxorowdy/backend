@@ -7,20 +7,20 @@ const game = require("../model/game.model")
  const getSingleGame = async(req,res)=>{
     const {name} = req.params;
     const game = await game.findOne({name}).lean();
-    res.status(200).json(game)
+    return res.status(200).json(game)
 }
 
  const CreateSingleGame = async (req,res) =>{
-    const {body} = req.body;
+    const body = req.body;
     const response = await game.insertMany(body)
     console.log(response)
-    res.status(201)
+    return res.status(201)
 }
 
  const updateSingleGame = async(req,res)=>{
     const body = req.body;
     const update = await game.updateOne({  name: body.name }, body );
-    res.send(202)
+    return res.send(202)
 
 }
 
@@ -28,7 +28,7 @@ const game = require("../model/game.model")
  const deleteSingleGame = async(req,res)=>{
     const {name} = req.params;
     const deleteRecord = await game.deleteOne({name});
-    res.send(200)
+    return res.send(200)
 }
 module.exports ={
     deleteSingleGame,CreateSingleGame,getSingleGame,getAllGame,updateSingleGame
