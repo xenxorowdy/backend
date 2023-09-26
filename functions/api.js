@@ -4,6 +4,9 @@ const app = express();
 const router = express.Router();
 const serverless = require("serverless-http");
 
+router.get('',(req,res)=>{
+    res.send("server online")
+})
 router.get('/allgame',getAllGame);
 router.get('/getsingle/:name',getSingleGame);
 router.post('/create',CreateSingleGame);
